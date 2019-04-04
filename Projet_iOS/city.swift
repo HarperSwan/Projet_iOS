@@ -1,3 +1,5 @@
+// Old file. No longer use
+
 import Foundation
 
 struct cityItem : Decodable {

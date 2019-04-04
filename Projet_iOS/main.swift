@@ -1,14 +1,4 @@
 import Foundation
-/*
-var query2: [String: String] = [
-    "appid" : "2888ec2cd2397d5e793783a09ed8cbc1"
-]
-
-query2["q"] = "cityname"
-print(query2)
-
-print("Hello world")
-print("djgdgjdfbgkj")*/
 
 print("Hello")
 
