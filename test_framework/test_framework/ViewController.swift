@@ -9,21 +9,24 @@
 import UIKit
 import Weather
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
 
     @IBOutlet weak var search_city: UISearchBar!
+    @IBOutlet weak var table_suggestion_city: UITableView!
     
     var searchActive : Bool = false
     
     var searchTextValue : String!
     
+    var searchSuggestionList : [City]!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
-        search_city.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-        //search_city.sendActionsForControlEvents
-        
+        search_city.delegate = self;
+        table_suggestion_city.delegate = self;
+        table_suggestion_city.dataSource = self;
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -35,7 +38,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("nop !");
         searchBar.text = "";
         searchActive = false;
     }
@@ -52,9 +54,27 @@ class ViewController: UIViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if(searchTextValue != nil) {
             let searchSuggestion = WeatherClient(key: searchTextValue);
-            print(searchSuggestion.citiesSuggestions(for: searchTextValue))
+            searchSuggestionList = searchSuggestion.citiesSuggestions(for: searchTextValue);
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(searchActive) {
+            return searchSuggestionList.count
+        }else {
+            return 0;
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell;
+        if(searchActive){
+            cell.textLabel?.text = searchSuggestionList[indexPath.row].name
+        } else {
+            cell.textLabel?.text = "";
+        }
+        
+        return cell;
     }
 
 }
-
