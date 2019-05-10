@@ -1,21 +1,5 @@
 import Foundation
-/*
-struct forecastItem: Codable {
 
-    struct list:Codable {
-        let AllWeather: [allWeather]
-        
-        enum CodingKeys: String,CodingKey{
-            case AllWeather
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.AllWeather = try container.decodeIfPresent([allWeather].self, forKey: .AllWeather) ?? [allWeather()]
-        }
-    }
-}*/
 
 func meteo_by_city_for5days(city:String){
     //let url = add_city_url(city: city, condition: "forcast")
@@ -54,7 +38,16 @@ func meteo_by_city_for5days(city:String){
         do{
             //here dataResponse received from a network request
             let jsonResponse = try JSONSerialization.jsonObject(with:data, options: [])
-            print(jsonResponse)
+            //print(jsonResponse)
+            
+            if let array = jsonResponse as? Array {
+                for obj in array {
+                    if let dict = obj as? NSDictionary {
+                        // Now reference the data you need using:
+                        let id = dict.valueForKey("id")
+                    }
+                }
+            }
             
             // Encode
             //let jsonR = try? JSONDecoder().decode(allWeather.self,from:data)

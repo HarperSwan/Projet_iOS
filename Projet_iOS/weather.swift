@@ -217,11 +217,11 @@ func meteo_by_city2(city:String) -> Void {
         }
         do{
             //here dataResponse received from a network request
-            let jsonResponse = try JSONSerialization.jsonObject(with:data, options: [])
-            print(jsonResponse)
+            //let jsonResponse = try JSONSerialization.jsonObject(with:data, options: [])
+            //print(jsonResponse)
             
             // Encode
-            let jsonR = try? JSONDecoder().decode(allWeather.self,from:data)
+            //let jsonR = try? JSONDecoder().decode(allWeather.self,from:data)
             //print(jsonR)
         } catch {
             print("Error")

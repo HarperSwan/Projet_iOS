@@ -6,14 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		5F22CDAC22540C1300AFF462 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22CDAB22540C1300AFF462 /* main.swift */; };
-		5F22CDB322540C3F00AFF462 /* city.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22CDB222540C3F00AFF462 /* city.swift */; };
-		5F22CDB522540CB800AFF462 /* url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22CDB422540CB800AFF462 /* url.swift */; };
-		5F9B9F19225695850097DA77 /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9B9F18225695850097DA77 /* weather.swift */; };
-		5F9B9F1B2256AD3D0097DA77 /* forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9B9F1A2256AD3D0097DA77 /* forecast.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		5F22CDA622540C1200AFF462 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -27,12 +19,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F22CDA822540C1300AFF462 /* Projet_iOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_iOS; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F22CDAB22540C1300AFF462 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		5F22CDB222540C3F00AFF462 /* city.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = city.swift; sourceTree = "<group>"; };
-		5F22CDB422540CB800AFF462 /* url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = url.swift; sourceTree = "<group>"; };
-		5F9B9F18225695850097DA77 /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
-		5F9B9F1A2256AD3D0097DA77 /* forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecast.swift; sourceTree = "<group>"; };
+		5F22CDA822540C1300AFF462 /* Projet_iOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Projet_iOS; path = /Users/m2sar/Projet_iOS/build/Debug/Projet_iOS; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,29 +36,7 @@
 		5F22CD9F22540C1200AFF462 = {
 			isa = PBXGroup;
 			children = (
-				5F22CDAA22540C1300AFF462 /* Projet_iOS */,
-				5F22CDA922540C1300AFF462 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		5F22CDA922540C1300AFF462 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5F22CDA822540C1300AFF462 /* Projet_iOS */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5F22CDAA22540C1300AFF462 /* Projet_iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5F22CDAB22540C1300AFF462 /* main.swift */,
-				5F9B9F1A2256AD3D0097DA77 /* forecast.swift */,
-				5F9B9F18225695850097DA77 /* weather.swift */,
-				5F22CDB222540C3F00AFF462 /* city.swift */,
-				5F22CDB422540CB800AFF462 /* url.swift */,
-			);
-			path = Projet_iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +82,7 @@
 				en,
 			);
 			mainGroup = 5F22CD9F22540C1200AFF462;
-			productRefGroup = 5F22CDA922540C1300AFF462 /* Products */;
+			productRefGroup = 5F22CD9F22540C1200AFF462;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -131,11 +96,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F9B9F19225695850097DA77 /* weather.swift in Sources */,
-				5F22CDB522540CB800AFF462 /* url.swift in Sources */,
-				5F22CDB322540C3F00AFF462 /* city.swift in Sources */,
-				5F22CDAC22540C1300AFF462 /* main.swift in Sources */,
-				5F9B9F1B2256AD3D0097DA77 /* forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
