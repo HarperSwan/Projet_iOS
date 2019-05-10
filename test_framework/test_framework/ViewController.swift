@@ -15,6 +15,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     var searchActive : Bool = false
     
+    var searchTextValue : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,19 +35,25 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("nop !");
+        searchBar.text = "";
         searchActive = false;
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(!searchText.isEmpty) {
-            let searchSuggestion = WeatherClient(key: searchText);
+            searchTextValue = searchText;
+            //let searchSuggestion = WeatherClient(key: searchText);
             //print(searchSuggestion.citiesSuggestions(for: searchText))
         }
-        searchActive = false;
+        searchActive = true;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if(searchTextValue != nil) {
+            let searchSuggestion = WeatherClient(key: searchTextValue);
+            print(searchSuggestion.citiesSuggestions(for: searchTextValue))
+        }
     }
 
 }
