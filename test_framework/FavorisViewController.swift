@@ -13,6 +13,7 @@ class FavorisViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Favoris", image: UIImage(named: "favorite"), tag: 1)
+        
     }
 
     override func viewDidLoad() {
