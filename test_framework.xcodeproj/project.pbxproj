@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FD65F532289D9AD00E8EFBA /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */; };
+		5FD65F642289E4F600E8EFBA /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; };
+		5FD65F652289E4F600E8EFBA /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5FEC90C4228994C0000A64F4 /* FavorisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEC90C3228994C0000A64F4 /* FavorisViewController.swift */; };
 		5FEC90C6228994D1000A64F4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEC90C5228994D1000A64F4 /* SearchViewController.swift */; };
 		D69907B922856BC2003E1E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69907B822856BC2003E1E16 /* AppDelegate.swift */; };
@@ -16,8 +19,6 @@
 		D69907C322856BC4003E1E16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69907C122856BC4003E1E16 /* LaunchScreen.storyboard */; };
 		D69907CE22856BC4003E1E16 /* test_frameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69907CD22856BC4003E1E16 /* test_frameworkTests.swift */; };
 		D69907D922856BC4003E1E16 /* test_frameworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69907D822856BC4003E1E16 /* test_frameworkUITests.swift */; };
-		D69907F12285AEF2003E1E16 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69907F02285AEF2003E1E16 /* Weather.framework */; };
-		D69907F22285AEF2003E1E16 /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D69907F02285AEF2003E1E16 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D69907EA22856C55003E1E16 /* Embed Frameworks */ = {
+		5FD65F622289E4E700E8EFBA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D69907F22285AEF2003E1E16 /* Weather.framework in Embed Frameworks */,
+				5FD65F652289E4F600E8EFBA /* Weather.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +53,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		5FD65F542289E3DE00E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Weather.framework; path = ../../../Downloads/Weather.framework; sourceTree = "<group>"; };
+		5FD65F632289E4F500E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 		5FEC90C3228994C0000A64F4 /* FavorisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisViewController.swift; sourceTree = "<group>"; };
 		5FEC90C5228994D1000A64F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D69907B522856BC2003E1E16 /* test_framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_framework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +71,6 @@
 		D69907D422856BC4003E1E16 /* test_frameworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test_frameworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69907D822856BC4003E1E16 /* test_frameworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_frameworkUITests.swift; sourceTree = "<group>"; };
 		D69907DA22856BC4003E1E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D69907F02285AEF2003E1E16 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D69907F12285AEF2003E1E16 /* Weather.framework in Frameworks */,
+				5FD65F642289E4F600E8EFBA /* Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +102,7 @@
 		D69907AC22856BC2003E1E16 = {
 			isa = PBXGroup;
 			children = (
-				D69907F02285AEF2003E1E16 /* Weather.framework */,
+				5FD65F632289E4F500E8EFBA /* Weather.framework */,
 				D69907B722856BC2003E1E16 /* test_framework */,
 				D69907CC22856BC4003E1E16 /* test_frameworkTests */,
 				D69907D722856BC4003E1E16 /* test_frameworkUITests */,
@@ -121,11 +124,12 @@
 		D69907B722856BC2003E1E16 /* test_framework */ = {
 			isa = PBXGroup;
 			children = (
+				5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */,
 				D69907B822856BC2003E1E16 /* AppDelegate.swift */,
 				D69907BA22856BC2003E1E16 /* ViewController.swift */,
-				D69907BC22856BC2003E1E16 /* Main.storyboard */,
 				5FEC90C3228994C0000A64F4 /* FavorisViewController.swift */,
 				5FEC90C5228994D1000A64F4 /* SearchViewController.swift */,
+				D69907BC22856BC2003E1E16 /* Main.storyboard */,
 				D69907BF22856BC4003E1E16 /* Assets.xcassets */,
 				D69907C122856BC4003E1E16 /* LaunchScreen.storyboard */,
 				D69907C422856BC4003E1E16 /* Info.plist */,
@@ -154,6 +158,7 @@
 		D69907EB2285AE70003E1E16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FD65F542289E3DE00E8EFBA /* Weather.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,7 +173,7 @@
 				D69907B122856BC2003E1E16 /* Sources */,
 				D69907B222856BC2003E1E16 /* Frameworks */,
 				D69907B322856BC2003E1E16 /* Resources */,
-				D69907EA22856C55003E1E16 /* Embed Frameworks */,
+				5FD65F622289E4E700E8EFBA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +299,7 @@
 				5FEC90C4228994C0000A64F4 /* FavorisViewController.swift in Sources */,
 				5FEC90C6228994D1000A64F4 /* SearchViewController.swift in Sources */,
 				D69907B922856BC2003E1E16 /* AppDelegate.swift in Sources */,
+				5FD65F532289D9AD00E8EFBA /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/test_framework",
 				);
 				INFOPLIST_FILE = test_framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,6 +505,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/test_framework",
 				);
 				INFOPLIST_FILE = test_framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
