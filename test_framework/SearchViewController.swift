@@ -49,7 +49,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     // Table // Number of rows
+    // OKKK
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedCity.count
@@ -61,11 +66,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Table // search update
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Hello 2")
         let city = tableView.dequeueReusableCell(withIdentifier: "city")
         if searching {
             city?.textLabel?.text = searchedCity[indexPath.row]
+            print(searchedCity[indexPath.row])
         } else {
-            //city?.textLabel?.text = citiesList[indexPath.row]
+            city?.textLabel?.text = citiesList[indexPath.row].name
         }
         return city!
     }
@@ -87,20 +94,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // search done when button clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchCitiesList(textSearch: searchBar.text!)
-        print(citiesList)
+        //print(citiesList)
         for cityL in citiesList {
             searchedCity.append(cityL.name)
+           // print("city : \(cityL.name)")
         }
+       // print(searchedCity)
         // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
-        tbCities.reloadData()
+        self.tbCities.reloadData()
     }
     
     // When search is cancelled
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
-        tbCities.reloadData()
+        self.tbCities.reloadData()
     }
     
     // Cities search with framework
