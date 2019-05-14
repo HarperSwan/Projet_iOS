@@ -31,7 +31,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchedCityCountry = [String]() // list of country
     var searchTextValue : String!
     var searching = false
-
+    
     
     // Initialisation
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +47,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // allow to hide keyboard when tapping
         hideKeyboardWhenTappedAround()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -59,7 +59,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 1
         }
     }
-
+    
     
     // Table // search update // reload
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,17 +76,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // search done at every tapping // too long
     /*
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchCitiesList(textSearch: searchText)
-        print(citiesList)
-        for cityL in citiesList {
-            searchedCity.append(cityL.name)
-        }
-       // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-        tbCities.reloadData()
-    }
- */
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+     searchCitiesList(textSearch: searchText)
+     print(citiesList)
+     for cityL in citiesList {
+     searchedCity.append(cityL.name)
+     }
+     // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
+     searching = true
+     tbCities.reloadData()
+     }
+     */
     
     // search done when button clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -124,17 +124,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             citiesList = weatherClient.citiesSuggestions(for: textSearch)
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 // hide keyboard
 extension UIViewController {
