@@ -5,9 +5,11 @@
 //  Created by Viviane on 13/05/2019.
 //  Copyright © 2019 m2sar. All rights reserved.
 //
-//  Controller for the search view
+//  _ Controller for the search view
+//
 //  > Search by a city
 //  > Display a list of cities and their country
+//
 
 import UIKit
 import Weather
@@ -57,6 +59,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 1
         }
     }
+
     
     // Table // search update // reload
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
