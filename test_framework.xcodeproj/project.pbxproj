@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F0632D3228C170500EE6E21 /* FavorisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0632D2228C170500EE6E21 /* FavorisTableViewCell.swift */; };
+		5F0632D5228C4A3D00EE6E21 /* FavorisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */; };
 		5FD65F532289D9AD00E8EFBA /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */; };
 		5FD65F642289E4F600E8EFBA /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; };
 		5FD65F652289E4F600E8EFBA /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		5F0632D2228C170500EE6E21 /* FavorisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisTableViewCell.swift; sourceTree = "<group>"; };
+		5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisModel.swift; sourceTree = "<group>"; };
 		5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		5FD65F542289E3DE00E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Weather.framework; path = ../../../Downloads/Weather.framework; sourceTree = "<group>"; };
 		5FD65F632289E4F500E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				D69907BA22856BC2003E1E16 /* ViewController.swift */,
 				5FEC90C3228994C0000A64F4 /* FavorisViewController.swift */,
 				5F0632D2228C170500EE6E21 /* FavorisTableViewCell.swift */,
+				5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */,
 				5FEC90C5228994D1000A64F4 /* SearchViewController.swift */,
 				D69907BC22856BC2003E1E16 /* Main.storyboard */,
 				D69907BF22856BC4003E1E16 /* Assets.xcassets */,
@@ -304,6 +307,7 @@
 				5FEC90C6228994D1000A64F4 /* SearchViewController.swift in Sources */,
 				D69907B922856BC2003E1E16 /* AppDelegate.swift in Sources */,
 				5FD65F532289D9AD00E8EFBA /* WeatherModel.swift in Sources */,
+				5F0632D5228C4A3D00EE6E21 /* FavorisModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@
 import XCTest
 @testable import test_framework
 
+import Weather
+
 class test_frameworkTests: XCTestCase {
 
     override func setUp() {
@@ -22,6 +24,8 @@ class test_frameworkTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        
     }
 
     func testPerformanceExample() {

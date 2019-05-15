@@ -20,9 +20,6 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let cellReuseIdentifier = "cellFavoris"
     
-    let ville : [String] = ["Paris"]
-    let temp : [String] = ["26 °C"]
-    
     var favorisLists : [FavorisItem] = [
         FavorisItem(city: "Paris", temp: "26 °C", image: "search"),
         FavorisItem(city: "New York", temp: "29 °C", image: "search"),
