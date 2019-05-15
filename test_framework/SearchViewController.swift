@@ -32,6 +32,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchTextValue : String!
     var searching = false
     
+    var idx = 0
+    
     
     // Initialisation
     required init?(coder aDecoder: NSCoder) {
@@ -55,8 +57,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
-    // Table // Number of rows
-    // OKKK
+    // --------------------- Table ------------------------
+    // Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedCity.count
@@ -79,6 +81,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return city!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        idx = indexPath.row
+        performSegue(withIdentifier: "segueWeatherCity", sender: self)
+    }
+    
     // search done at every tapping // too long
     /*
      func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -93,6 +100,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
      }
      */
     
+    // --------------------- SearchBar ------------------------
     // search done when button clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // clean datas
@@ -120,7 +128,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
-        self.tbCities.reloadData()
+        self.tbCities.reloadData() // actualize view
+        
+        searchBar.endEditing(true) // hide keyboard
     }
     
     // Cities search with framework
@@ -130,6 +140,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             citiesList = weatherClient.citiesSuggestions(for: textSearch)
         }
     }
+    
+    // hide keyboard when scrolling
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
+    
+    
+    
     
     /*
      // MARK: - Navigation
