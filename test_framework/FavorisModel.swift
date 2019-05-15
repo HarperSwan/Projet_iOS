@@ -7,20 +7,24 @@
 //
 
 import Foundation
+import Weather
 
 class FavorisModel {
     
-    var listFavorisSaved : [String]
+    let defaults = UserDefaults.standard
+    var listSaved : [City]
+    var listFavorisSaved : [City]
     
     init() {
-        listFavorisSaved = [""]
+        listFavorisSaved = []
+        listSaved = defaults.array(forKey: "favoris") as! [City]
     }
     
     func loadFavoris(){
-        
+        listSaved = defaults.array(forKey: "favoris") as! [City]
     }
     
-    func saveFavoris(cities: [String]){
+    func saveFavoris(city: City){
 
         /*
         let weatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
@@ -35,6 +39,43 @@ class FavorisModel {
         var city = weatherClient.weather(for: lists[1], completion: @escaping ()-> Void)
         print(city)
         */
+        
+        
+    }
+    
+    // Add a City from Favoris
+    func addFavoris(city: City){
+        // intialise temporary variables
+        listFavorisSaved.removeAll()
+        loadFavoris()
+        
+        // add to temporary list
+        var list2 = listFavorisSaved.append(city)
+        
+        // actualize
+        defaults.set(list2,forKey: "favoris")
+        defaults.synchronize()
+    }
+    
+    
+    // Delete a City from Favoris
+    func deleteFavoris(city: City){
+        // intialise temporary variables
+        listFavorisSaved.removeAll()
+        loadFavoris()
+        
+        var list2 : [City] = []
+        
+        // supprimer Favoris de la liste
+        for city2 in listSaved{
+            if city2.identifier != city.identifier{
+                list2.append(city2)
+            }
+        }
+        
+        // actualize
+        defaults.set(list2,forKey: "favoris")
+        defaults.synchronize()
     }
     
 }
