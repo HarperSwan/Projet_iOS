@@ -68,7 +68,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Table // search update // reload
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Hello 2")
         let city = tableView.dequeueReusableCell(withIdentifier: "city")
         if searching { // display the searched results
             city?.textLabel?.text = searchedCity[indexPath.row]
