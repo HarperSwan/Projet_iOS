@@ -5,8 +5,11 @@
 //  Created by Viviane on 13/05/2019.
 //  Copyright © 2019 m2sar. All rights reserved.
 //
-
-// TODO Afficher les villes dans la liste, fonction marche bien pas affichage
+//  _ Controller for the search view
+//
+//  > Search by a city
+//  > Display a list of cities and their country
+//
 
 import UIKit
 import Weather
@@ -18,18 +21,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // Declaration of table of cities
     @IBOutlet weak var tbCities: UITableView!
     
-    
-    /*
-    var searchActive : Bool = false
-    */
-    
     //var weatherClient : WeatherClient
     var citiesList : [City]! // List when search is empty
     var weatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
-    //var citiesList = nil
+    
+    // informations of the search
     var searchedCity = [String]() // List when search is done
+    var searchedCityID = [Int64]() // list of IDs
+    var searchedCityCountry = [String]() // list of country
     var searchTextValue : String!
     var searching = false
+    
     
     // Initialisation
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +47,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // allow to hide keyboard when tapping
         hideKeyboardWhenTappedAround()
-        //let WeatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
+        
         // Do any additional setup after loading the view.
     }
     
@@ -59,50 +61,60 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if searching {
             return searchedCity.count
         } else {
-           // return citiesList.count
             return 1
         }
     }
     
-    // Table // search update
+    
+    // Table // search update // reload
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Hello 2")
         let city = tableView.dequeueReusableCell(withIdentifier: "city")
-        if searching {
+        if searching { // display the searched results
             city?.textLabel?.text = searchedCity[indexPath.row]
-            print(searchedCity[indexPath.row])
-        } else {
-            city?.textLabel?.text = citiesList[indexPath.row].name
+            city?.detailTextLabel?.text = searchedCityCountry[indexPath.row]
+        } else { // When search is empty
+            city?.textLabel?.text = ""
+            city?.detailTextLabel?.text = ""
         }
         return city!
     }
     
     // search done at every tapping // too long
     /*
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchCitiesList(textSearch: searchText)
-        print(citiesList)
-        for cityL in citiesList {
-            searchedCity.append(cityL.name)
-        }
-       // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-        tbCities.reloadData()
-    }
- */
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+     searchCitiesList(textSearch: searchText)
+     print(citiesList)
+     for cityL in citiesList {
+     searchedCity.append(cityL.name)
+     }
+     // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
+     searching = true
+     tbCities.reloadData()
+     }
+     */
     
     // search done when button clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // clean datas
+        searchedCity.removeAll()
+        searchedCityID.removeAll()
+        searchedCityCountry.removeAll()
+        
+        // search from the text entered
         searchCitiesList(textSearch: searchBar.text!)
-        //print(citiesList)
+        
+        // prepare for table view
         for cityL in citiesList {
             searchedCity.append(cityL.name)
-           // print("city : \(cityL.name)")
+            searchedCityID.append(cityL.identifier)
+            searchedCityCountry.append(cityL.country)
         }
        // print(searchedCity)
         // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
+        
         searching = true
-        self.tbCities.reloadData()
+        tbCities.reloadData() // reload the tableview
     }
     
     // When search is cancelled
@@ -114,21 +126,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Cities search with framework
     func searchCitiesList(textSearch: String){
+        citiesList = nil
         if (textSearch != ""){
             citiesList = weatherClient.citiesSuggestions(for: textSearch)
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 // hide keyboard
 extension UIViewController {
