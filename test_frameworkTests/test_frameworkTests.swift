@@ -7,9 +7,8 @@
 //
 
 import XCTest
-@testable import test_framework
+//@testable import test_framework
 
-import Weather
 
 class test_frameworkTests: XCTestCase {
 

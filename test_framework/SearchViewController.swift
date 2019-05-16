@@ -34,6 +34,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var idx = 0
     
+   // var forca : Forecast
+    
     
     // Initialisation
     required init?(coder aDecoder: NSCoder) {
@@ -111,11 +113,24 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // search from the text entered
         searchCitiesList(textSearch: searchBar.text!)
         
+        
+        //var truc2 : Forecast
         // prepare for table view
         for cityL in citiesList {
             searchedCity.append(cityL.name)
             searchedCityID.append(cityL.identifier)
             searchedCityCountry.append(cityL.country)
+            
+            var temperature : Float = 0.0
+        
+            weatherClient.weather(for: cityL, completion: { (truc) in print("\(cityL.name)")
+                print(truc)
+                //var truc2 = truc as! Forecast
+                temperature = truc?.temperature ?? 0.0
+                print(" temperature : \(temperature)")
+            } )
+            //print(cityL)
+            print(temperature)
         }
        // print(searchedCity)
         // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
