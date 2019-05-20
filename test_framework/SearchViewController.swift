@@ -32,6 +32,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchTextValue : String!
     var searching = false
     
+    // For the segue
+    var activeCity : City?
+    var weatherNow : Any?
+    var weather5 : Any?
+    
     var idx = 0
     
    // var forca : Forecast
@@ -85,22 +90,47 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         idx = indexPath.row
+        print("row : \(idx)")
+        print("city : \(citiesList[idx])")
+        
+        activeCity = citiesList[idx]
+        
+        var temperature : Float = 0.0
+        //var weatherNow : Any?
+        //var weather5 : Any?
+        /*
+        
+        weatherClient.weather(for: (citiesList[idx]), completion: { (truc) in
+            //print("WEATHER __________ \(truc)")
+            //var truc2 = truc as! Forecast
+            //temperature = truc?.temperature ?? 0.0
+            //print(" temperature : \(temperature)")
+            //weatherNow.append(truc ?? nil)
+            self.weatherNow = truc
+            //print("WEATHER __________ \(self.weatherNow)")
+        } )
+        
+        weatherClient.forecast(for: (citiesList[idx]), completion: { (truc) in
+            self.weather5 = truc
+            //print("FORECAST ___________ \(self.weather5)")
+            //var truc2 = truc as! Forecast
+            //temperature = truc?.temperature ?? 0.0
+            //print(" temperature : \(temperature)")
+            
+        } )*/
+        
         performSegue(withIdentifier: "segueWeatherCity", sender: self)
+        
     }
     
-    // search done at every tapping // too long
-    /*
-     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-     searchCitiesList(textSearch: searchText)
-     print(citiesList)
-     for cityL in citiesList {
-     searchedCity.append(cityL.name)
-     }
-     // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
-     searching = true
-     tbCities.reloadData()
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueWeatherCity" {
+            let VCDestination = segue.destination as! WeatherViewController
+            VCDestination.city = self.activeCity
+            //VCDestination.weatherNow = self.weatherNow
+            //VCDestination.weather5 = self.weather5
+        }
+    }
     
     // --------------------- SearchBar ------------------------
     // search done when button clicked
@@ -120,7 +150,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             searchedCity.append(cityL.name)
             searchedCityID.append(cityL.identifier)
             searchedCityCountry.append(cityL.country)
-            
+            /*
             var temperature : Float = 0.0
         
             weatherClient.weather(for: cityL, completion: { (truc) in print("\(cityL.name)")
@@ -130,7 +160,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print(" temperature : \(temperature)")
             } )
             //print(cityL)
-            print(temperature)
+            print(temperature)*/
         }
        // print(searchedCity)
         // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
