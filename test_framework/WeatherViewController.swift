@@ -20,7 +20,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var btnAddFavoris: UIButton!
+    @IBOutlet weak var btnShowWeather5: UIButton!
+    
+    
     var weatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
+    var favorisModel = FavorisModel.init()
+    var favorisAdded : Bool = false
     
     var city : City?
     var weatherNow : Any?
@@ -34,10 +40,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var iconTemps : UIImage?
     
     var cellNames : [String] = []
+    var cellLabels : [String] = ["Humidity","Clouds coverage","Temperature Min", "Wind speed","Temperature","Pressure","Temperature Max","Wind orientation"]
     var cellValues : [Float] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        for city2 in favorisModel.listSaved {
+            if (city2.identifier == city?.identifier){
+                favorisAdded = true
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -112,11 +125,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             cellNames.append(key)
             cellValues.append(value)
         }
-        print(cellValues)
         
-        print(datas)
-        
-        // Do any additional setup after loading the view.
+        // change button btnAddFavoris if favoris is added or not
+        if (favorisAdded == true){
+            btnAddFavoris.setTitle("Supprimer des favoris", for: [])
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,20 +143,33 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        //cell?.textLabel?.text = "salut"
         
-        cell?.textLabel?.text = cellNames[indexPath.row]
+        //cell?.textLabel?.text = cellNames[indexPath.row]
+        cell?.textLabel?.text = cellLabels[indexPath.row]
         cell?.detailTextLabel?.text = String(cellValues[indexPath.row])
-        /*
-        for (value1,value2) in datas {
-            cell?.textLabel?.text = value1
-            cell?.detailTextLabel?.text = String(value2)
-        }*/
         
         return cell!
     }
     
-
+    // Button Add / Delete Favoris
+    @IBAction func changeFavoris(_ sender: Any) {
+        if (favorisAdded == true){ // Delete from favoris
+            favorisModel.deleteFavoris(city: city!)
+            favorisAdded = false
+            btnAddFavoris.setTitle("Ajouter aux favoris", for: [])
+        } else { // Add to favoris
+            favorisModel.addFavoris(city: city!)
+            favorisAdded = true
+            btnAddFavoris.setTitle("Supprimer des favoris", for: [])
+        }
+        
+        print(favorisModel.listSaved)
+    }
+    
+    // Button Previsions
+    @IBAction func showPrevisions(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -12,16 +12,28 @@ import Weather
 class FavorisModel {
     
     let defaults = UserDefaults.standard
-    var listSaved : [City]
-    var listFavorisSaved : [City]
+    var listSaved : [City] = []
+    private var listFavorisSaved : [City]
     
     init() {
         listFavorisSaved = []
-        listSaved = defaults.array(forKey: "favoris") as! [City]
+        //print(defaults.array(forKey: "favoris"))
+        
+        if (defaults.array(forKey: "favoris") != nil){
+            listSaved = defaults.array(forKey: "favoris") as! [City]
+        } else {
+            listSaved = []
+        }
+        //print(defaults.array(forKey: "favoris"))
     }
     
     func loadFavoris(){
-        listSaved = defaults.array(forKey: "favoris") as! [City]
+        if (defaults.array(forKey: "favoris") != nil){
+            listSaved = defaults.array(forKey: "favoris") as! [City]
+        } else {
+            listSaved = []
+        }
+        print("LOAD : \(defaults.array(forKey: "favoris"))")
     }
     
     func saveFavoris(city: City){
@@ -50,11 +62,21 @@ class FavorisModel {
         loadFavoris()
         
         // add to temporary list
-        var list2 = listFavorisSaved.append(city)
+        listFavorisSaved = listSaved
+        listFavorisSaved.append(city)
+        print("LIST 2 : \(listFavorisSaved)")
         
         // actualize
-        defaults.set(list2,forKey: "favoris")
+        
+        // SAVE WITH ID
+        let encoded = try? NSKeyedArchiver.archivedData(withRootObject: listFavorisSaved, requiringSecureCoding: false)
+        //print(encoded)
+        defaults.set(encoded, forKey: "favoris")
+        
+        //defaults.set(listFavorisSaved,forKey: "favoris")
+        //defaults.set(NSKeyedArchiver.archivedData(withRootObject: hero), forKey: favoris)
         defaults.synchronize()
+        loadFavoris()
     }
     
     
@@ -74,8 +96,13 @@ class FavorisModel {
         }
         
         // actualize
-        defaults.set(list2,forKey: "favoris")
+        if (list2 == nil) {
+            defaults.removeObject(forKey: "favoris")
+        } else {
+            defaults.set(list2,forKey: "favoris")
+        }
         defaults.synchronize()
+        loadFavoris()
     }
     
 }

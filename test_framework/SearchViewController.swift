@@ -90,34 +90,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         idx = indexPath.row
-        print("row : \(idx)")
-        print("city : \(citiesList[idx])")
-        
         activeCity = citiesList[idx]
-        
-        var temperature : Float = 0.0
-        //var weatherNow : Any?
-        //var weather5 : Any?
-        /*
-        
-        weatherClient.weather(for: (citiesList[idx]), completion: { (truc) in
-            //print("WEATHER __________ \(truc)")
-            //var truc2 = truc as! Forecast
-            //temperature = truc?.temperature ?? 0.0
-            //print(" temperature : \(temperature)")
-            //weatherNow.append(truc ?? nil)
-            self.weatherNow = truc
-            //print("WEATHER __________ \(self.weatherNow)")
-        } )
-        
-        weatherClient.forecast(for: (citiesList[idx]), completion: { (truc) in
-            self.weather5 = truc
-            //print("FORECAST ___________ \(self.weather5)")
-            //var truc2 = truc as! Forecast
-            //temperature = truc?.temperature ?? 0.0
-            //print(" temperature : \(temperature)")
-            
-        } )*/
         
         performSegue(withIdentifier: "segueWeatherCity", sender: self)
         
