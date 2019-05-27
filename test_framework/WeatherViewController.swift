@@ -11,6 +11,7 @@ import Weather
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var btnUnwindToSearch: UIBarButtonItem!
     @IBOutlet weak var labelCity: UILabel!
     @IBOutlet weak var labelTemperature: UILabel!
     
@@ -45,16 +46,18 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        for city2 in favorisModel.listSaved {
-            if (city2.identifier == city?.identifier){
-                favorisAdded = true
-            }
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Update button favoris at first loading
+        var idx = String(city?.identifier ?? 0)
+        for city2 in favorisModel.listSaved {
+            if (city2[0] == idx){
+                favorisAdded = true
+            }
+        }
 
         let group = DispatchGroup()
         group.enter()
@@ -63,12 +66,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             self.weatherNow = truc
             
-            //let tempe : Float = truc?.temperature ?? 0.0
             self.tempe = truc?.temperature ?? 0.0
-            //self.labelTemperature.text = "\(tempe) °C"
-            
-            //let iconTps : UIImage = (truc?.weather[0].icon ?? nil)!
-            //self.imgTemps.image = iconTps
             
             self.iconTemps = (truc?.weather[0].icon ?? nil)!
             
@@ -79,7 +77,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.datas["temperatureMax"] = truc?.temperatureMax ?? 0.0
             self.datas["pressure"] = truc?.pressure ?? 0.0
             self.datas["humidity"] = truc?.humidity ?? 0.0
-           // print(truc?.weather[0].title ?? "")
+            
             self.weaTitle = truc?.weather[0].title ?? ""
             self.weaDescription = truc?.weather[0].description ?? ""
             
@@ -89,30 +87,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             
             group.leave()
-            /*
-             switch result {
-             case .success(let granted) :
-             if granted {
-             print("access is granted")
-             } else {
-             print("access is denied")
-             }
-             case .failure(let error): print(error)
-             }*/
-            
-            //print("WEATHER __________ \(truc)")
-            //var truc2 = truc as! Forecast
-            //temperature = truc?.temperature ?? 0.0
-            //print(" temperature : \(temperature)")
-            //weatherNow.append(truc ?? nil)
-            
-            //print("WEATHER __________ \(self.weatherNow)")
         } )
         group.wait()
-        
+        /*
         print("Ville : \(city)")
         print("Weather Now ____ \(weatherNow)")
-        //weatherNow.temperature?
+        //weatherNow.temperature?*/
         
         imgTemps.image = iconTemps
         labelCity.text = city?.name
@@ -144,7 +124,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        //cell?.textLabel?.text = cellNames[indexPath.row]
         cell?.textLabel?.text = cellLabels[indexPath.row]
         cell?.detailTextLabel?.text = String(cellValues[indexPath.row])
         
@@ -162,14 +141,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             favorisAdded = true
             btnAddFavoris.setTitle("Supprimer des favoris", for: [])
         }
-        
-        print(favorisModel.listSaved)
     }
     
     // Button Previsions
     @IBAction func showPrevisions(_ sender: Any) {
     }
-    
+
     /*
     // MARK: - Navigation
 

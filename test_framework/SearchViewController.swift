@@ -70,7 +70,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if searching {
             return searchedCity.count
         } else {
-            return 1
+            return 0
         }
     }
     
@@ -164,7 +164,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBar.endEditing(true)
     }
     
-    
+    @IBAction func unwindToSearch(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
     
     
     /*

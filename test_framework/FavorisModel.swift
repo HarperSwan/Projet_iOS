@@ -12,15 +12,15 @@ import Weather
 class FavorisModel {
     
     let defaults = UserDefaults.standard
-    var listSaved : [City] = []
-    private var listFavorisSaved : [City]
+    
+    var listSaved : [[String]] = [] // list saved in the memory
+    var listFavorisSaved : [[String]] = [] // temporary list for functions
     
     init() {
         listFavorisSaved = []
-        //print(defaults.array(forKey: "favoris"))
         
         if (defaults.array(forKey: "favoris") != nil){
-            listSaved = defaults.array(forKey: "favoris") as! [City]
+            listSaved = defaults.array(forKey: "favoris") as! [[String]]
         } else {
             listSaved = []
         }
@@ -29,11 +29,11 @@ class FavorisModel {
     
     func loadFavoris(){
         if (defaults.array(forKey: "favoris") != nil){
-            listSaved = defaults.array(forKey: "favoris") as! [City]
+            listSaved = defaults.array(forKey: "favoris") as! [[String]]
         } else {
             listSaved = []
         }
-        print("LOAD : \(defaults.array(forKey: "favoris"))")
+        //print("LOAD : \(defaults.array(forKey: "favoris"))")
     }
     
     func saveFavoris(city: City){
@@ -63,18 +63,12 @@ class FavorisModel {
         
         // add to temporary list
         listFavorisSaved = listSaved
-        listFavorisSaved.append(city)
-        print("LIST 2 : \(listFavorisSaved)")
+        var ajout : [String] = [String(city.identifier),city.name,city.country]
+        
+        listFavorisSaved.append(ajout)
         
         // actualize
-        
-        // SAVE WITH ID
-        let encoded = try? NSKeyedArchiver.archivedData(withRootObject: listFavorisSaved, requiringSecureCoding: false)
-        //print(encoded)
-        defaults.set(encoded, forKey: "favoris")
-        
-        //defaults.set(listFavorisSaved,forKey: "favoris")
-        //defaults.set(NSKeyedArchiver.archivedData(withRootObject: hero), forKey: favoris)
+        defaults.set(listFavorisSaved,forKey: "favoris")
         defaults.synchronize()
         loadFavoris()
     }
@@ -86,17 +80,17 @@ class FavorisModel {
         listFavorisSaved.removeAll()
         loadFavoris()
         
-        var list2 : [City] = []
+        var list2 : [[String]] = []
         
         // supprimer Favoris de la liste
-        for city2 in listSaved{
-            if city2.identifier != city.identifier{
+        for city2 in listSaved {
+            if city2[0] != String(city.identifier){
                 list2.append(city2)
             }
         }
         
         // actualize
-        if (list2 == nil) {
+        if (list2 == []) {
             defaults.removeObject(forKey: "favoris")
         } else {
             defaults.set(list2,forKey: "favoris")
