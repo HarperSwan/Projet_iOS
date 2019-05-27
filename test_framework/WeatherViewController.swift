@@ -24,6 +24,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var btnAddFavoris: UIButton!
     @IBOutlet weak var btnShowWeather5: UIButton!
     
+    //let tabBarCnt = UITableViewController()
+    //@IBOutlet weak var tabBar: UITabBar!
+   // @IBOutlet weak var btnBarFavoris: UITabBarItem!
+   // @IBOutlet weak var btnBarSearch: UITabBarItem!
+    
     
     var weatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
     var favorisModel = FavorisModel.init()
@@ -32,6 +37,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var city : City?
     var weatherNow : Any?
     var weather5 : Any?
+    var fromSegue : String?
 
     var tempe : Float = 0.0
     var dateNow : Date = Date()
@@ -89,10 +95,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             group.leave()
         } )
         group.wait()
-        /*
-        print("Ville : \(city)")
-        print("Weather Now ____ \(weatherNow)")
-        //weatherNow.temperature?*/
         
         imgTemps.image = iconTemps
         labelCity.text = city?.name
@@ -145,8 +147,55 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Button Previsions
     @IBAction func showPrevisions(_ sender: Any) {
+        performSegue(withIdentifier: "segueWeather5", sender: self)
     }
+    
+    // Favoris button bar navigation
+  /*  @IBAction func goToFavoris(_ sender: Any){
+        performSegue(withIdentifier: "segueGoToFavorisFromWeatherNow", sender: self)
+    }
+    
+    @IBAction func goToSearch(_ sender: Any){
+        performSegue(withIdentifier: "segueGoToSearchFromWeatherNow", sender: self)
+    }
+    */
+    // Segue Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueWeather5" {
+            let VCDestination = segue.destination as! Weather5ViewController
+            VCDestination.city = self.city
+        } /*else if segue.identifier == "segueGoToFavorisFromWeatherNow" {
+            let VCDestination = segue.destination as! FavorisViewController
+        } else if segue.identifier == "segueGoToSearchFromWeatherNow"  {
+            let VCDestination = segue.destination as! SearchViewController
+        }*/
+    }
+    /*
+    @IBAction func unwindtoFavoris(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+    }*/
+/*
+    func createTabBar(){
+        tabBarCnt = UITabBarController()
+        tabBarCnt.delegate = self
+        tabBarCnt.tabBar.barStyle = .default
 
+        let firstViewController = UIViewController()
+        tabBarItem = UITabBarItem(title: "Favoris", image: UIImage(named: "favorite"), tag: 1)
+        
+    }*/
+    /*
+    func createTabBarController(){
+        
+        let favorisVC = FavorisViewController(coder: NSCoder())
+        favorisVC?.title = "Favoris"
+        favorisVC?.tabBarItem = btnBarFavoris
+        
+        let searchVC = SearchViewController(coder: NSCoder())
+        searchVC?.title = "Recherche"
+        searchVC?.tabBarItem = btnBarSearch
+    }
+    */
     /*
     // MARK: - Navigation
 

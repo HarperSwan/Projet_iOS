@@ -36,6 +36,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var activeCity : City?
     var weatherNow : Any?
     var weather5 : Any?
+    var fromSegue : String?
     
     var idx = 0
     
@@ -93,13 +94,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         activeCity = citiesList[idx]
         
         performSegue(withIdentifier: "segueWeatherCity", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueWeatherCity" {
             let VCDestination = segue.destination as! WeatherViewController
             VCDestination.city = self.activeCity
+            VCDestination.fromSegue = "Search"
             //VCDestination.weatherNow = self.weatherNow
             //VCDestination.weather5 = self.weather5
         }

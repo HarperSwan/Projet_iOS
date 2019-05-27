@@ -10,6 +10,7 @@
 		5F0632D3228C170500EE6E21 /* FavorisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0632D2228C170500EE6E21 /* FavorisTableViewCell.swift */; };
 		5F0632D5228C4A3D00EE6E21 /* FavorisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */; };
 		5F77976622932848003D8B00 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77976522932848003D8B00 /* WeatherViewController.swift */; };
+		5F7E7480229C35FF0096E30A /* Weather5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E747F229C35FF0096E30A /* Weather5ViewController.swift */; };
 		5FD65F532289D9AD00E8EFBA /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */; };
 		5FD65F642289E4F600E8EFBA /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; };
 		5FD65F652289E4F600E8EFBA /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD65F632289E4F500E8EFBA /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +60,7 @@
 		5F0632D2228C170500EE6E21 /* FavorisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisTableViewCell.swift; sourceTree = "<group>"; };
 		5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisModel.swift; sourceTree = "<group>"; };
 		5F77976522932848003D8B00 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		5F7E747F229C35FF0096E30A /* Weather5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather5ViewController.swift; sourceTree = "<group>"; };
 		5FD65F522289D9AD00E8EFBA /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		5FD65F542289E3DE00E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Weather.framework; path = ../../../Downloads/Weather.framework; sourceTree = "<group>"; };
 		5FD65F632289E4F500E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				5F0632D4228C4A3D00EE6E21 /* FavorisModel.swift */,
 				5FEC90C5228994D1000A64F4 /* SearchViewController.swift */,
 				5F77976522932848003D8B00 /* WeatherViewController.swift */,
+				5F7E747F229C35FF0096E30A /* Weather5ViewController.swift */,
 				D69907BC22856BC2003E1E16 /* Main.storyboard */,
 				D69907BF22856BC4003E1E16 /* Assets.xcassets */,
 				D69907C122856BC4003E1E16 /* LaunchScreen.storyboard */,
@@ -307,6 +310,7 @@
 				5F0632D3228C170500EE6E21 /* FavorisTableViewCell.swift in Sources */,
 				D69907BB22856BC2003E1E16 /* ViewController.swift in Sources */,
 				5FEC90C4228994C0000A64F4 /* FavorisViewController.swift in Sources */,
+				5F7E7480229C35FF0096E30A /* Weather5ViewController.swift in Sources */,
 				5FEC90C6228994D1000A64F4 /* SearchViewController.swift in Sources */,
 				D69907B922856BC2003E1E16 /* AppDelegate.swift in Sources */,
 				5F77976622932848003D8B00 /* WeatherViewController.swift in Sources */,

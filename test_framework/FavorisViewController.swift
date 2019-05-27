@@ -31,6 +31,10 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var citiesFavoris : [City] = []
     
+    // Segue variables
+    var activeCity : City?
+    
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Favoris", image: UIImage(named: "favorite"), tag: 1) // tab bar
@@ -92,16 +96,33 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 83.0
     }
     
+    // Add refresh to the view
     func addRefreshControl(){
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshList), for: .valueChanged)
         tbFavoris.addSubview(refreshControl!)
     }
     
+    // Refresh when pull tableview
     @objc func refreshList(){
         loadCities()
         tbFavoris.reloadData()
         refreshControl?.endRefreshing()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var idx = indexPath.row
+        activeCity = citiesFavoris[idx]
+        
+        performSegue(withIdentifier: "segueWeatherCityFromFav", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueWeatherCityFromFav" {
+            let VCDestination = segue.destination as! WeatherViewController
+            VCDestination.city = self.activeCity
+            VCDestination.fromSegue = "Favoris"
+        }
     }
     
     func loadCities(){
@@ -118,6 +139,8 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
+
 
     /*
     // MARK: - Navigation
