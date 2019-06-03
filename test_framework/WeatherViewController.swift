@@ -24,12 +24,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var btnAddFavoris: UIButton!
     @IBOutlet weak var btnShowWeather5: UIButton!
     
-    //let tabBarCnt = UITableViewController()
-    //@IBOutlet weak var tabBar: UITabBar!
-   // @IBOutlet weak var btnBarFavoris: UITabBarItem!
-   // @IBOutlet weak var btnBarSearch: UITabBarItem!
-    
-    
     var weatherClient = WeatherClient(key: "2888ec2cd2397d5e793783a09ed8cbc1")
     var favorisModel = FavorisModel.init()
     var favorisAdded : Bool = false
@@ -150,16 +144,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func showPrevisions(_ sender: Any) {
         performSegue(withIdentifier: "segueWeather5", sender: self)
     }
-    
-    // Favoris button bar navigation
-  /*  @IBAction func goToFavoris(_ sender: Any){
-        performSegue(withIdentifier: "segueGoToFavorisFromWeatherNow", sender: self)
-    }
-    
-    @IBAction func goToSearch(_ sender: Any){
-        performSegue(withIdentifier: "segueGoToSearchFromWeatherNow", sender: self)
-    }
-    */
+
     // Segue Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueWeather5" {
