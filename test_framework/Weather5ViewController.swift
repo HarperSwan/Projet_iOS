@@ -63,7 +63,6 @@ class Weather5ViewController: UIViewController {
         group.enter()
         
         weatherClient.forecast(for: city!, completion: { (forecastResult) in
-            //print(truc)
             self.weather5 = forecastResult
             
             var day1 : [String] = [String(forecastResult?[0].temperature ?? 0.0),forecastResult?[0].weather[0].title ?? ""]
@@ -90,30 +89,7 @@ class Weather5ViewController: UIViewController {
             var imgDay5 : UIImage = (forecastResult?[32].weather[0].icon ?? nil)!
             self.forecasts.append(day5)
             self.imgs.append(imgDay5)
-            
-            /*
-            self.weatherNow = truc
-            
-            self.tempe = truc?.temperature ?? 0.0
-            
-            self.iconTemps = (truc?.weather[0].icon ?? nil)!
-            
-            self.dateNow = truc?.date ?? Date()
-            
-            self.datas["temperature"] = truc?.temperature ?? 0.0
-            self.datas["temperatureMin"] = truc?.temperatureMin ?? 0.0
-            self.datas["temperatureMax"] = truc?.temperatureMax ?? 0.0
-            self.datas["pressure"] = truc?.pressure ?? 0.0
-            self.datas["humidity"] = truc?.humidity ?? 0.0
-            
-            self.weaTitle = truc?.weather[0].title ?? ""
-            self.weaDescription = truc?.weather[0].description ?? ""
-            
-            self.datas["cloudsCoverage"] = truc?.cloudsCoverage ?? 0.0
-            self.datas["windSpeed"] = truc?.windSpeed ?? 0.0
-            self.datas["windOrientation"] = truc?.windOrientation ?? 0.0*/
-            
-            
+       
             group.leave()
         } )
         group.wait()
@@ -137,27 +113,9 @@ class Weather5ViewController: UIViewController {
         img5.image = imgs[4]
         temp5.text = "\(forecasts[4][0]) °C"
         weaTitle5.text = forecasts[4][1]
-        /*
-        img2 = weather5?[2].weather[0].icon as? UIImage
-        temp2.text = weather5?[2].temperature as? String
-        weaTitle2.text = weather5?[2].weather[0].title as? String
-        
-        img3 = weather5?[9].weather[0].icon as? UIImage
-        temp3.text = weather5?[9].temperature as? String
-        weaTitle3.text = weather5?[9].weather[0].title as? String*/
     }
     
-    
-
-    
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

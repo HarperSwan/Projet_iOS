@@ -50,6 +50,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var cellLabels : [String] = ["Humidity","Clouds coverage","Temperature Min", "Wind speed","Temperature","Pressure","Temperature Max","Wind orientation"]
     var cellValues : [Float] = []
     
+    var cellTables : [String:Float] = [:]
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -68,30 +70,29 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         let group = DispatchGroup()
         group.enter()
         
-        weatherClient.weather(for: city!, completion: { (truc) in
+        weatherClient.weather(for: city!, completion: { (weatherResult) in
             
-            self.weatherNow = truc
+            self.weatherNow = weatherResult
             
-            self.tempe = truc?.temperature ?? 0.0
+            self.tempe = weatherResult?.temperature ?? 0.0
             
-            self.iconTemps = (truc?.weather[0].icon ?? nil)!
+            self.iconTemps = (weatherResult?.weather[0].icon ?? nil)!
             
-            self.dateNow = truc?.date ?? Date()
+            self.dateNow = weatherResult?.date ?? Date()
             
-            self.datas["temperature"] = truc?.temperature ?? 0.0
-            self.datas["temperatureMin"] = truc?.temperatureMin ?? 0.0
-            self.datas["temperatureMax"] = truc?.temperatureMax ?? 0.0
-            self.datas["pressure"] = truc?.pressure ?? 0.0
-            self.datas["humidity"] = truc?.humidity ?? 0.0
+            self.datas["Temperature"] = weatherResult?.temperature ?? 0.0
+            self.datas["Temperature Min"] = weatherResult?.temperatureMin ?? 0.0
+            self.datas["Temperature Max"] = weatherResult?.temperatureMax ?? 0.0
+            self.datas["Pressure"] = weatherResult?.pressure ?? 0.0
+            self.datas["Humidity"] = weatherResult?.humidity ?? 0.0
             
-            self.weaTitle = truc?.weather[0].title ?? ""
-            self.weaDescription = truc?.weather[0].description ?? ""
+            self.weaTitle = weatherResult?.weather[0].title ?? ""
+            self.weaDescription = weatherResult?.weather[0].description ?? ""
             
-            self.datas["cloudsCoverage"] = truc?.cloudsCoverage ?? 0.0
-            self.datas["windSpeed"] = truc?.windSpeed ?? 0.0
-            self.datas["windOrientation"] = truc?.windOrientation ?? 0.0
-
-            
+            self.datas["Clouds Coverage"] = weatherResult?.cloudsCoverage ?? 0.0
+            self.datas["Wind Speed"] = weatherResult?.windSpeed ?? 0.0
+            self.datas["Wind Orientation"] = weatherResult?.windOrientation ?? 0.0
+   
             group.leave()
         } )
         group.wait()
@@ -103,7 +104,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         labelWeaTitle.text = weaTitle
         labelWeaDescription.text = weaDescription
         
-        for (key,value) in datas{
+        for (key,value) in datas {
             cellNames.append(key)
             cellValues.append(value)
         }
@@ -126,8 +127,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        cell?.textLabel?.text = cellLabels[indexPath.row]
-        cell?.detailTextLabel?.text = String(cellValues[indexPath.row])
+        cell?.textLabel?.text = Array(datas)[indexPath.row].key
+        cell?.detailTextLabel?.text = String(Int(round(Array(datas)[indexPath.row].value)))
         
         return cell!
     }
@@ -196,14 +197,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchVC?.tabBarItem = btnBarSearch
     }
     */
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - Navigation
 
 }

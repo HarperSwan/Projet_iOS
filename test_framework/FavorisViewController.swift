@@ -59,11 +59,6 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Table of favoris // content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFavoris = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for:indexPath) as! FavorisTableViewCell
-        /*
-        let favoris = favorisLists[indexPath.row]
-        cellFavoris.ville?.text = favoris.city
-        cellFavoris.temp?.text = favoris.temp
-        cellFavoris.img?.image = UIImage(named: favoris.image)*/
         
         let favoris = citiesFavoris[indexPath.row]
         cellFavoris.ville?.text = favoris.name
@@ -140,16 +135,6 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

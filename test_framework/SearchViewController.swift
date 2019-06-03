@@ -57,8 +57,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // allow to hide keyboard when tapping
         hideKeyboardWhenTappedAround()
-        
-        // Do any additional setup after loading the view.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,27 +115,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // search from the text entered
         searchCitiesList(textSearch: searchBar.text!)
         
-        
-        //var truc2 : Forecast
         // prepare for table view
         for cityL in citiesList {
             searchedCity.append(cityL.name)
             searchedCityID.append(cityL.identifier)
             searchedCityCountry.append(cityL.country)
-            /*
-            var temperature : Float = 0.0
-        
-            weatherClient.weather(for: cityL, completion: { (truc) in print("\(cityL.name)")
-                print(truc)
-                //var truc2 = truc as! Forecast
-                temperature = truc?.temperature ?? 0.0
-                print(" temperature : \(temperature)")
-            } )
-            //print(cityL)
-            print(temperature)*/
         }
-       // print(searchedCity)
-        // searchedCity = citiesList.filter({_ in City["name"].lowercased().prefix(searchText.count) == searchText.lowercased()})
         
         searching = true
         tbCities.reloadData() // reload the tableview
@@ -170,16 +153,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Use data from the view controller which initiated the unwind segue
     }
     
-    
-    /*
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
 // hide keyboard
