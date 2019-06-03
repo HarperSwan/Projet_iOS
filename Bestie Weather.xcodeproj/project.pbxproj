@@ -66,17 +66,17 @@
 		5FD65F632289E4F500E8EFBA /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 		5FEC90C3228994C0000A64F4 /* FavorisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisViewController.swift; sourceTree = "<group>"; };
 		5FEC90C5228994D1000A64F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D69907B522856BC2003E1E16 /* test_framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_framework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69907B522856BC2003E1E16 /* Bestie Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bestie Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69907B822856BC2003E1E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69907BA22856BC2003E1E16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D69907BD22856BC2003E1E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D69907BF22856BC4003E1E16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69907C222856BC4003E1E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69907C422856BC4003E1E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D69907C922856BC4003E1E16 /* test_frameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test_frameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69907C922856BC4003E1E16 /* Bestie WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bestie WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69907CD22856BC4003E1E16 /* test_frameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_frameworkTests.swift; sourceTree = "<group>"; };
 		D69907CF22856BC4003E1E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D69907D422856BC4003E1E16 /* test_frameworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test_frameworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69907D422856BC4003E1E16 /* Bestie WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bestie WeatherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69907D822856BC4003E1E16 /* test_frameworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_frameworkUITests.swift; sourceTree = "<group>"; };
 		D69907DA22856BC4003E1E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,9 +122,9 @@
 		D69907B622856BC2003E1E16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D69907B522856BC2003E1E16 /* test_framework.app */,
-				D69907C922856BC4003E1E16 /* test_frameworkTests.xctest */,
-				D69907D422856BC4003E1E16 /* test_frameworkUITests.xctest */,
+				D69907B522856BC2003E1E16 /* Bestie Weather.app */,
+				D69907C922856BC4003E1E16 /* Bestie WeatherTests.xctest */,
+				D69907D422856BC4003E1E16 /* Bestie WeatherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D69907B422856BC2003E1E16 /* test_framework */ = {
+		D69907B422856BC2003E1E16 /* Bestie Weather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D69907DD22856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_framework" */;
+			buildConfigurationList = D69907DD22856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie Weather" */;
 			buildPhases = (
 				D69907B122856BC2003E1E16 /* Sources */,
 				D69907B222856BC2003E1E16 /* Frameworks */,
@@ -191,14 +191,14 @@
 			);
 			dependencies = (
 			);
-			name = test_framework;
+			name = "Bestie Weather";
 			productName = test_framework;
-			productReference = D69907B522856BC2003E1E16 /* test_framework.app */;
+			productReference = D69907B522856BC2003E1E16 /* Bestie Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D69907C822856BC4003E1E16 /* test_frameworkTests */ = {
+		D69907C822856BC4003E1E16 /* Bestie WeatherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D69907E022856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_frameworkTests" */;
+			buildConfigurationList = D69907E022856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie WeatherTests" */;
 			buildPhases = (
 				D69907C522856BC4003E1E16 /* Sources */,
 				D69907C622856BC4003E1E16 /* Frameworks */,
@@ -209,14 +209,14 @@
 			dependencies = (
 				D69907CB22856BC4003E1E16 /* PBXTargetDependency */,
 			);
-			name = test_frameworkTests;
+			name = "Bestie WeatherTests";
 			productName = test_frameworkTests;
-			productReference = D69907C922856BC4003E1E16 /* test_frameworkTests.xctest */;
+			productReference = D69907C922856BC4003E1E16 /* Bestie WeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D69907D322856BC4003E1E16 /* test_frameworkUITests */ = {
+		D69907D322856BC4003E1E16 /* Bestie WeatherUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D69907E322856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_frameworkUITests" */;
+			buildConfigurationList = D69907E322856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie WeatherUITests" */;
 			buildPhases = (
 				D69907D022856BC4003E1E16 /* Sources */,
 				D69907D122856BC4003E1E16 /* Frameworks */,
@@ -227,9 +227,9 @@
 			dependencies = (
 				D69907D622856BC4003E1E16 /* PBXTargetDependency */,
 			);
-			name = test_frameworkUITests;
+			name = "Bestie WeatherUITests";
 			productName = test_frameworkUITests;
-			productReference = D69907D422856BC4003E1E16 /* test_frameworkUITests.xctest */;
+			productReference = D69907D422856BC4003E1E16 /* Bestie WeatherUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D69907B022856BC2003E1E16 /* Build configuration list for PBXProject "test_framework" */;
+			buildConfigurationList = D69907B022856BC2003E1E16 /* Build configuration list for PBXProject "Bestie Weather" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -268,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D69907B422856BC2003E1E16 /* test_framework */,
-				D69907C822856BC4003E1E16 /* test_frameworkTests */,
-				D69907D322856BC4003E1E16 /* test_frameworkUITests */,
+				D69907B422856BC2003E1E16 /* Bestie Weather */,
+				D69907C822856BC4003E1E16 /* Bestie WeatherTests */,
+				D69907D322856BC4003E1E16 /* Bestie WeatherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,12 +340,12 @@
 /* Begin PBXTargetDependency section */
 		D69907CB22856BC4003E1E16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D69907B422856BC2003E1E16 /* test_framework */;
+			target = D69907B422856BC2003E1E16 /* Bestie Weather */;
 			targetProxy = D69907CA22856BC4003E1E16 /* PBXContainerItemProxy */;
 		};
 		D69907D622856BC4003E1E16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D69907B422856BC2003E1E16 /* test_framework */;
+			target = D69907B422856BC2003E1E16 /* Bestie Weather */;
 			targetProxy = D69907D522856BC4003E1E16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -554,7 +554,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test_framework.app/test_framework";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bestie Weather.app/Bestie Weather";
 			};
 			name = Debug;
 		};
@@ -574,7 +574,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test_framework.app/test_framework";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bestie Weather.app/Bestie Weather";
 			};
 			name = Release;
 		};
@@ -619,7 +619,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D69907B022856BC2003E1E16 /* Build configuration list for PBXProject "test_framework" */ = {
+		D69907B022856BC2003E1E16 /* Build configuration list for PBXProject "Bestie Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D69907DB22856BC4003E1E16 /* Debug */,
@@ -628,7 +628,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D69907DD22856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_framework" */ = {
+		D69907DD22856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D69907DE22856BC4003E1E16 /* Debug */,
@@ -637,7 +637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D69907E022856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_frameworkTests" */ = {
+		D69907E022856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie WeatherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D69907E122856BC4003E1E16 /* Debug */,
@@ -646,7 +646,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D69907E322856BC4003E1E16 /* Build configuration list for PBXNativeTarget "test_frameworkUITests" */ = {
+		D69907E322856BC4003E1E16 /* Build configuration list for PBXNativeTarget "Bestie WeatherUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D69907E422856BC4003E1E16 /* Debug */,
