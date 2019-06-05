@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recherche 2-->
+        <!--Search-->
         <scene sceneID="Pge-8A-d01">
             <objects>
-                <viewController id="kGe-hW-w0j" customClass="SearchViewController" customModule="test_framework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kGe-hW-w0j" customClass="SearchViewController" customModule="Bestie_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2CY-Kk-GiF"/>
                         <viewControllerLayoutGuide type="bottom" id="nDu-LK-lap"/>
@@ -82,7 +82,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recherche 2" selectedImage="search" id="ibY-wH-tSZ"/>
+                    <tabBarItem key="tabBarItem" title="Search" selectedImage="search" id="ibY-wH-tSZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="gq7-ps-bQc" id="gQR-X9-X37"/>
@@ -97,7 +97,7 @@
         <!--Weather View Controller-->
         <scene sceneID="epp-dh-Nke">
             <objects>
-                <viewController id="Poa-oD-FyO" customClass="WeatherViewController" customModule="test_framework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Poa-oD-FyO" customClass="WeatherViewController" customModule="Bestie_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mko-h5-5hc"/>
                         <viewControllerLayoutGuide type="bottom" id="RDA-WP-zy7"/>
@@ -227,7 +227,7 @@
         <!--Weather5 View Controller-->
         <scene sceneID="8eW-l5-pL0">
             <objects>
-                <viewController id="Lc6-Ec-E11" customClass="Weather5ViewController" customModule="test_framework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lc6-Ec-E11" customClass="Weather5ViewController" customModule="Bestie_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dsT-3e-bYl"/>
                         <viewControllerLayoutGuide type="bottom" id="s7f-TG-f2Q"/>
@@ -244,7 +244,7 @@
                                         <barButtonItem key="backBarButtonItem" systemItem="done" id="JrO-ZJ-E9W"/>
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="csX-ub-iOb">
                                             <connections>
-                                                <segue destination="TDM-Ox-Tzi" kind="unwind" unwindAction="unwindFromWeatherNow:" id="NeY-2e-2ia"/>
+                                                <action selector="backToWeather:" destination="Lc6-Ec-E11" id="3Su-7t-mtq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -275,15 +275,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-Xo-Jo7">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Favoris" image="favorite" id="606-3t-PJl"/>
-                                    <tabBarItem title="Recherche" image="search" id="z6x-Hj-hDV"/>
-                                </items>
-                            </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjB-kC-Nou">
                                 <rect key="frame" x="16" y="118" width="285" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -415,14 +406,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Toe-17-8xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="TDM-Ox-Tzi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2182" y="132"/>
         </scene>
         <!--Favoris View Controller-->
         <scene sceneID="3XS-uT-kgq">
             <objects>
-                <viewController id="Me2-45-eZe" customClass="FavorisViewController" customModule="test_framework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Me2-45-eZe" customClass="FavorisViewController" customModule="Bestie_Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPj-Zn-7SS"/>
                         <viewControllerLayoutGuide type="bottom" id="4dC-G7-3cj"/>
@@ -443,7 +433,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellFavoris" rowHeight="85" id="Es9-Lq-m4o" customClass="FavorisTableViewCell" customModule="test_framework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellFavoris" rowHeight="85" id="Es9-Lq-m4o" customClass="FavorisTableViewCell" customModule="Bestie_Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Es9-Lq-m4o" id="1e3-rU-o7k">
@@ -527,7 +517,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favorite" width="25" height="25"/>
         <image name="search" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

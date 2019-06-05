@@ -116,6 +116,9 @@ class Weather5ViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
-
+   
+    @IBAction func backToWeather(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
