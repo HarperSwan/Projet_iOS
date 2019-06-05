@@ -105,7 +105,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // change button btnAddFavoris if favoris is added or not
         if (favorisAdded == true){
-            btnAddFavoris.setTitle("Supprimer des favoris", for: [])
+            btnAddFavoris.setTitle("Delete from favorites", for: [])
         }
     }
 
@@ -132,11 +132,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (favorisAdded == true){ // Delete from favoris
             favorisModel.deleteFavoris(city: city!)
             favorisAdded = false
-            btnAddFavoris.setTitle("Ajouter aux favoris", for: [])
+            btnAddFavoris.setTitle("Add to favorites", for: [])
         } else { // Add to favoris
             favorisModel.addFavoris(city: city!)
             favorisAdded = true
-            btnAddFavoris.setTitle("Supprimer des favoris", for: [])
+            btnAddFavoris.setTitle("Delete from favorites", for: [])
         }
     }
     
